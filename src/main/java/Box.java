@@ -10,21 +10,17 @@ public class Box<T extends Fruit> {
 
 
 
-    public Box(T... items) {
-        this.someFruitsInBox = new ArrayList<T>(Arrays.asList(items));
+    public Box(T... orangeOrApple) {
+        this.someFruitsInBox = new ArrayList<T>(Arrays.asList(orangeOrApple));
     }
 
-    public void add(T... items) {
-        this.someFruitsInBox.addAll(Arrays.asList(items));
+    public void add(T... orangeOrApple) {
+        this.someFruitsInBox.addAll(Arrays.asList(orangeOrApple));
     }
 
-    public void remove(T... items) {
-        for (T item : items) this.someFruitsInBox.remove(item);
+    public void remove(T... orangeOrApple) {
+        for (T item : orangeOrApple) this.someFruitsInBox.remove(item);
     }
-
-
-
-
 
     public void clear() {
         someFruitsInBox.clear();
@@ -41,8 +37,8 @@ public class Box<T extends Fruit> {
         return this.getWeight() == box.getWeight();
     }
 
-    public void intersperse(Box<? super T> box) {
-        box.someFruitsInBox.addAll(this.someFruitsInBox);
+    public void intersperse(Box<? super T> inWhatWeGiveWeInterpersedOurBox) {
+        inWhatWeGiveWeInterpersedOurBox.someFruitsInBox.addAll(this.someFruitsInBox);
         clear();
     }
 }
