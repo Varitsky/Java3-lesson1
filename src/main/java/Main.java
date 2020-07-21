@@ -25,23 +25,34 @@ public class Main {
 
 
         ArrayList<Integer> arrList = helloArrayList(intArr);
-        arrList.stream().forEach(System.out::print);
+        System.out.println(Arrays.toString(arrList.toArray()));
 
 
         Apple redApple = new Apple();
         Apple poisonedApple = new Apple();
         Apple artificalApple = new Apple();
 
-        Orange orange1 = new Orange();
-        Orange orange2 = new Orange();
+        Orange hamlin = new Orange();
+        Orange verna = new Orange();
 
-        Box<Apple> box1 = new Box<Apple>(redApple, poisonedApple, artificalApple);
-        Box<Orange> box2 = new Box<Orange>(orange1, orange2);
+        Box<Apple> appleBox = new Box<>(redApple, poisonedApple, artificalApple);
+        Box<Orange> orangeBox = new Box<>(hamlin, verna);
 
-        System.out.println(box1.compare(box2));
+        //Сравниваем две коробки
+        System.out.println(appleBox.compare(orangeBox));
 
-        Box<Orange> box3 = new Box<Orange>();
-        box2.intersperse(box3);
+        //Добавляем апельсинчик и сравниваем ещё раз
+        Orange salustiana = new Orange();
+        orangeBox.add(salustiana);
+        System.out.println(appleBox.compare(orangeBox));
+
+
+        Box<Orange> anotherOrangeBox = new Box<>();
+        // Пересыпаем OrangeBox в anotherOrangeBox
+        orangeBox.intersperse(anotherOrangeBox);
+        System.out.println(orangeBox.getWeight());
+        System.out.println(anotherOrangeBox.getWeight());
+
     }
 
 
